@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuipMVrzTRGdSX_eyD-yrqLISVq1YIO2s&libraries=places">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+        var pyrmont = {lat: 57.70, lng: 11.93};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 1500,
+          type: ['food']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+			document.getElementById("Results").innerHTML = JSON.stringify(results);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    </script>
+  </head>
+  <body>
+	<div id="header">
+		<h1>Var krökar vi</h1>
+	</div>
+    <div id="map">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuipMVrzTRGdSX_eyD-yrqLISVq1YIO2s&libraries=places" async defer></script>
+	</div>
+	<div id="menu">
+		<h2>Here we show he result</h2>
+		<textarea id="Results" rows="4" cols="50"></textarea>
+		<button id="SearchButton" class="mdl-button mdl-js-button mdl-button--raised" onclick="initMap()">Sök</button>
+	</div>
+
+  </body>
+</html>

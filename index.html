@@ -1,0 +1,112 @@
+<!Doctype>
+<html>
+  <head>
+    <title>Var träffas vi?</title>
+
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="Google Maps, Google Kartor, Google Places, Google Platser, Var träffas vi?">
+    <meta name="author" content="Alexander Bükk och Jonas Lundgren">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="stylesheet.css">
+		<!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+		<!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">-->
+		<!--<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>-->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!--JavaScript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="google.js"></script>
+    <script src="jsonData.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <!--Google Maps-->
+      <div id="map">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuipMVrzTRGdSX_eyD-yrqLISVq1YIO2s&libraries=places&callback=initMap" async defer></script>
+      </div>
+	  
+			<div id="menu-wrapper">
+				<div class="tab">
+					<button class="tablinks" onclick="openCity(event, 'create-group')" id="defaultOpen">Skapa grupp</button>
+					<button class="tablinks" onclick="openCity(event, 'manage-groups');getGroups()">Hantera grupper</button>
+					<button class="tablinks" onclick="openCity(event, 'search')">Sök</button>
+				</div>
+		
+				<!--Create group-->
+				<div id="create-group" class="tabcontent">
+					<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+					<form action="/action_page.php">
+            <br>
+						<label for="gname">Namn</label>
+            <br>
+						<input type="text" id="groupname" name="groupname" placeholder="Gruppens namn...">
+            <br>
+						<label for="type">Typ</label>
+            <br>
+						<select id="type" name="type">
+							<option value="cafe">Café</option>
+							<option value="pub">Pub</option>
+							<option value="resturant">Restaurang</option>
+						</select>
+            <br>
+						<label for="description">Beskrivning</label>
+						<!--<input type="text" id="description" name="description" placeholder="Beskrivning av vilka typer av platser gruppen ska träffas på...">-->
+						<br>
+            <textarea id="description" name="description" placeholder="Beskrivning av vilka typer av platser gruppen ska träffas på..." rows="5"></textarea>
+						<br>
+            <input type="button" value="Skapa grupp" onclick="createGroup()">
+					</form>
+				</div>
+
+				<!--Manage groups-->
+				<div id="manage-groups" class="tabcontent">
+					<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+					<form action="/action_page.php">
+            <br>
+						<label for="selectgroup">Välj grupp</label>
+						<br>
+            <select id="selectgroup" name="type">
+						</select>
+            <br>
+						<label for="joingroup">Gå med i grupp</label>
+						<br>
+            <input type="text" id="joingroup" name="joingroup" placeholder="Skriv ditt namn...">
+						<br>
+						<input type="button" value="Gå med" onclick="joinGroup()">
+					</form>
+				</div>
+
+				<!--Search-->
+				<div id="search" class="tabcontent">
+					<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+					<form action="/action_page.php">
+            <br>
+						<label for="type">Grupp</label>
+						<br>
+            <select id="grupp" name="group">
+						</select>
+            <br>
+						<label for="keyword">Nyckelord</label>
+						<br>
+            <input type="text" id="keyword" name="keyword" placeholder="Nyckelord för platsen...">
+            <br>
+						<label for="distance">Maxdistans</label>
+						<br>
+            <input type="text" id="distance" name="distance" placeholder="Maxavstån till platsen">
+						 <br>
+						<input type="button" value="Sök" onclick="searchPlaces()">
+					</form>
+				</div>
+        <script src="elementBehaviour.js"></script>
+			</div>
+      
+      <p id="test">test</p>
+    </div>
+
+  </body>
+</html>

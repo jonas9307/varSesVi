@@ -1,0 +1,97 @@
+/*The styles are ordered in the way they appear in index.html*/
+
+body {
+	font-family: 'Roboto', sans-serif !important;
+  margin: 0px;
+}
+
+#map {
+  height: 100%;
+}
+
+#menu-wrapper {
+  box-shadow: 1px 1px 1px #888888;
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background-color: white;
+  min-width: 25%;
+  max-width: 88%;
+  width:auto;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px 20px 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  width: 100%;
+  background-color: #45b52b;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+input[type=button]:hover {
+  background-color: #45b52b;
+}
+
+div.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.0s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+  border-bottom: solid 4px #45b52b;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  float: left;
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+}
+
+/* Style the close button */
+.topright {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  color: #cccccc;
+}
+
+.topright:hover {
+  color: #ff1010;
+}
+form {
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 26px;
+} 

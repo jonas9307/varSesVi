@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      function getJSON() {
+        $.get("https://api.myjson.com/bins/10f8j3", function(data, textStatus, jqXHR) {
+          document.getElementById("demo").innerHTML = JSON.stringify(data);
+        });
+      }
+      function setJSON() {
+        $.ajax({
+          url:"https://api.myjson.com/bins/10f8j3",
+          type:"PUT",
+          data:'{"key_3":"value"}',
+          contentType:"application/json; charset=utf-8",
+          dataType:"json",
+          success: function(data, textStatus, jqXHR){
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>This is a Heading</h1>
+    <p id="demo">This is a paragraph.</p>
+    <button id="button" onclick="getJSON()" >Get</button>
+  </body>
+</html>
