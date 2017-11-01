@@ -1,17 +1,23 @@
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+// Get the element with id="default-open" and click on it
+$("#default-open")[0].click();
 
+// --- Show/hide tab content and activate/deactivate tab links
 function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+
+  // Hide all elements with class "tab-content"
+  $(".tab-content").each(function() {
+    $(this).hide();
+  });
+
+  // Show the element cityName
+  $("#" + cityName).show();
+
+  // Remove class "active" to all elements of class "tab-links" 
+  $(".tab-links").each(function() {
+    $(this).removeClass("active");
+  });
+
+  // Add class active to current target element of (onclick) event
+  $(evt.currentTarget).addClass("active");
 }
 

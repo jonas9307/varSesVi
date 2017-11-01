@@ -31,9 +31,9 @@ function createGroup() {
     //var data = JSON.stringify(jsonData);
   
     var newgroup = {
-      name : $("#groupname")[0].value,
-      type :  $("#type")[0].value,
-      description : $("#description")[0].value
+      name : $("#group-name")[0].value,
+      type :  $("#places-type")[0].value,
+      description : $("#group-description")[0].value
     }
 
     jsonData.groups.push(newgroup);
@@ -46,7 +46,7 @@ function createGroup() {
 function getGroups() {
 	getJSON(function(jsonData) {
 		var groups = jsonData.groups;
-		var list = $("#selectgroup");
+		var list = $("#select-group");
     while (list[0].firstChild) {
       list[0].removeChild(list[0].firstChild);
     }

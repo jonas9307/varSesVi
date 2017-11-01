@@ -32,63 +32,63 @@
 	  
 			<div id="menu-wrapper">
 				<div class="tab">
-					<button class="tablinks" onclick="openCity(event, 'create-group')" id="defaultOpen">Skapa grupp</button>
-					<button class="tablinks" onclick="openCity(event, 'manage-groups');getGroups()">Hantera grupper</button>
-					<button class="tablinks" onclick="openCity(event, 'search')">Sök</button>
+					<button class="tab-links" onclick="openCity(event, 'create-group')" id="default-open">Skapa grupp</button>
+					<button class="tab-links" onclick="openCity(event, 'manage-groups');getGroups()">Hantera grupper</button>
+					<button class="tab-links" onclick="openCity(event, 'search')">Sök</button>
 				</div>
 		
 				<!--Create group-->
-				<div id="create-group" class="tabcontent">
-					<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+				<div id="create-group" class="tab-content">
+					<span onclick="this.parentElement.style.display='none'" class="top-right">x</span>
 					<form action="/action_page.php">
             <br>
-						<label for="gname">Namn</label>
+						<label for="group-name">Namn</label>
             <br>
-						<input type="text" id="groupname" name="groupname" placeholder="Gruppens namn...">
+						<input type="text" id="group-name" name="group-name" placeholder="Gruppens namn...">
             <br>
-						<label for="type">Typ</label>
+						<label for="places-type">Typ</label>
             <br>
-						<select id="type" name="type">
+						<select id="places-type" name="type">
 							<option value="cafe">Café</option>
 							<option value="pub">Pub</option>
 							<option value="resturant">Restaurang</option>
 						</select>
             <br>
-						<label for="description">Beskrivning</label>
+						<label for="group-description">Beskrivning</label>
 						<!--<input type="text" id="description" name="description" placeholder="Beskrivning av vilka typer av platser gruppen ska träffas på...">-->
 						<br>
-            <textarea id="description" name="description" placeholder="Beskrivning av vilka typer av platser gruppen ska träffas på..." rows="5"></textarea>
+            <textarea id="group-description" name="group-description" placeholder="Beskrivning av vilka typer av platser gruppen ska träffas på..." rows="5"></textarea>
 						<br>
             <input type="button" value="Skapa grupp" onclick="createGroup()">
 					</form>
 				</div>
 
 				<!--Manage groups-->
-				<div id="manage-groups" class="tabcontent">
-					<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+				<div id="manage-groups" class="tab-content">
+					<span onclick="this.parentElement.style.display='none'" class="top-right">x</span>
 					<form action="/action_page.php">
             <br>
-						<label for="selectgroup">Välj grupp</label>
+						<label for="select-group">Välj grupp</label>
 						<br>
-            <select id="selectgroup" name="type">
+            <select id="select-group" name="type">
 						</select>
             <br>
-						<label for="joingroup">Gå med i grupp</label>
+						<label for="add-member">Lägg till ny medlem</label>
 						<br>
-            <input type="text" id="joingroup" name="joingroup" placeholder="Skriv ditt namn...">
+            <input type="text" id="add-member" name="add-member" placeholder="Skriv ditt namn...">
 						<br>
 						<input type="button" value="Gå med" onclick="joinGroup()">
 					</form>
 				</div>
 
 				<!--Search-->
-				<div id="search" class="tabcontent">
-					<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+				<div id="search" class="tab-content">
+					<span onclick="this.parentElement.style.display='none'" class="top-right">x</span>
 					<form action="/action_page.php">
             <br>
-						<label for="type">Grupp</label>
+						<label for="group">Grupp</label>
 						<br>
-            <select id="grupp" name="group">
+            <select id="group" name="group">
 						</select>
             <br>
 						<label for="keyword">Nyckelord</label>

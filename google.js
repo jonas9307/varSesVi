@@ -16,7 +16,7 @@ function initMap() {
     radius = 500;
   }
 
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map($('#map')[0], {
     center: pyrmont,
     zoom: 15
   });
