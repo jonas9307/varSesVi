@@ -59,7 +59,15 @@ function getGroups() {
 }
 
 function showGroup() {
-
+  getJSON(function(jsonData) {
+    var groups = jsonData.groups;
+    groups.forEach(function (obj) {
+      var name = obj["name"];
+      var text = $("#select-group").val();
+      if(name === text)
+        $("#manage-groups-info").html(JSON.stringify(obj)); // Insert fields into a table
+    });
+	});
 }
 
 function joinGroup() {
