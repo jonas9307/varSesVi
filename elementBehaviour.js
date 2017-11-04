@@ -9,7 +9,7 @@ function openCity(evt, cityName) {
     $(this).hide();
   });
 
-  // Show the element cityName
+  // Show element cityName
   $("#" + cityName).show();
 
   // Remove class "active" to all elements of class "tab-links" 

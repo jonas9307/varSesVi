@@ -51,10 +51,8 @@ function getGroups() {
       list[0].removeChild(list[0].firstChild);
     }
 		for(var i = 0; i < groups.length; i++) {
-      list.append('<option value="' + groups[i].name + '">' + groups[i].name + "</option>");
-      
+      list.append('<option value="' + groups[i].name + '">' + groups[i].name + "</option>"); 
 		}
-		
 	});
 }
 
