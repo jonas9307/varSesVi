@@ -2,7 +2,7 @@
 $("#default-open")[0].click();
 
 // --- Show/hide tab content and activate/deactivate tab links
-function openCity(evt, cityName) {
+function openCity(evt, tabName) {
 
   // Hide all elements with class "tab-content"
   $(".tab-content").each(function() {
@@ -10,7 +10,7 @@ function openCity(evt, cityName) {
   });
 
   // Show element cityName
-  $("#" + cityName).show();
+  $("#" + tabName).show();
 
   // Remove class "active" to all elements of class "tab-links" 
   $(".tab-links").each(function() {

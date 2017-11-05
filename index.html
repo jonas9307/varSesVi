@@ -33,7 +33,7 @@
 			<div id="menu-wrapper">
 				<div class="tab">
 					<button class="tab-links" onclick="openCity(event, 'create-group')" id="default-open">Skapa grupp</button>
-					<button class="tab-links" onclick="openCity(event, 'manage-groups');getGroups()">Hantera grupper</button>
+					<button id = "manage-group-tab" class="tab-links" onclick="openCity(event, 'manage-groups');getGroups()">Hantera grupper</button>
 					<button class="tab-links" onclick="openCity(event, 'search')">Sök</button>
 				</div>
 		
@@ -73,15 +73,13 @@
             <select id="select-group" onchange="showGroup()" name="type">
 						</select>
             <hr>
-            <table id="manage-groups-info">
-              Group info
-            </table>
+            <p id="manage-groups-info"></p>
             <hr>
 						<label for="add-member">Lägg till ny medlem</label>
 						<br>
             <input type="text" id="add-member" name="add-member" placeholder="Skriv ditt namn...">
 						<br>
-						<input type="button" value="Gå med" onclick="joinGroup()">
+						<input type="button" value="Gå med" onclick="joinGroup();setTimeout(showGroup, 1000)">
 					</form>
 				</div>
 
@@ -110,6 +108,7 @@
 			</div>
       
       <p id="test">test</p>
+      <button onclick="test()">test</button>
     </div>
 
   </body>
